@@ -17,8 +17,6 @@ public class PowerModel {
 
     public MutableResource<Discrete<Double>> SolarArrayChargingRate; // Wh 
 
-    public MutableResource<Discrete<Double>> BatteryCharge; // Wh
-
     public MutableResource<Discrete<Double>> FlightComputerDrainRate; // Wh
 
     public PowerModel(Registrar registrar, Configuration config)

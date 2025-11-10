@@ -25,11 +25,7 @@ class MissionResourceTest {
 
   @Test
   public void simpleBatteryPowerCheck() {
-    //spawn(mission.powerModel::solarArrayCharge);
     assertEquals(currentValue(mission.powerModel.BatteryCharge), 2000.0);
     delay(10, Duration.SECONDS);
-    //assertEquals(currentValue(mission.powerModel.BatteryCharge), 2000.0);
-    //delay(70, Duration.MINUTES);
-    //assertEquals(currentValue(mission.powerModel.BatteryCharge), 2010.0);,
   }
 }
