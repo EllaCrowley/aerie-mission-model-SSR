@@ -12,7 +12,7 @@ import gov.nasa.jpl.aerie.merlin.protocol.types.Duration;
 public class GroundContact {
 
     @Parameter
-    public Double drainMultiplier = 5.0; // Multiplier for power drain during ground contact
+    public Double contactDrain = 500.0; // Watt hours; power drain during ground contact
 
     @Parameter
     public Duration duration = Duration.duration(10, Duration.MINUTES);
@@ -24,11 +24,9 @@ public class GroundContact {
          Increase power drain during ground contact
         */
         Double initialFlightComputerDrainRate = currentValue(model.powerModel.FlightComputerDrainRate);
-        DiscreteEffects.increase(model.powerModel.FlightComputerDrainRate, 
-            initialFlightComputerDrainRate * (drainMultiplier - 1.0));
+        DiscreteEffects.set(model.powerModel.FlightComputerDrainRate, contactDrain);
         delay(duration);
-        DiscreteEffects.decrease(model.powerModel.FlightComputerDrainRate, 
-            initialFlightComputerDrainRate * (drainMultiplier - 1.0));
+        DiscreteEffects.set(model.powerModel.FlightComputerDrainRate, initialFlightComputerDrainRate);
 
     }
 }
