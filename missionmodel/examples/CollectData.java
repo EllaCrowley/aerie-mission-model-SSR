@@ -13,7 +13,8 @@ import static gov.nasa.jpl.aerie.merlin.framework.ModelActions.delay;
 
 /* Example Activity Type Definition
    If this activity is moved over to main/java/missionmodel along with the DataModel class and the example model
-   declaration in the Mission class is uncommented, the model should compile.
+   declaration in the Mission class is uncommented, and the "withactivity" annotation in the package-info
+   class is uncommented, the model should compile.
  */
 @ActivityType("CollectData")
 public class CollectData {

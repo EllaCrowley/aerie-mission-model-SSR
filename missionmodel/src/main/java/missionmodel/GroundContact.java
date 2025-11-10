@@ -1,0 +1,34 @@
+package missionmodel;
+
+import static gov.nasa.jpl.aerie.contrib.streamline.core.Resources.currentValue;
+import static gov.nasa.jpl.aerie.merlin.framework.ModelActions.delay;
+
+import gov.nasa.jpl.aerie.contrib.streamline.modeling.discrete.DiscreteEffects;
+import gov.nasa.jpl.aerie.merlin.framework.annotations.ActivityType;
+import gov.nasa.jpl.aerie.merlin.framework.annotations.Export.Parameter;
+import gov.nasa.jpl.aerie.merlin.protocol.types.Duration;
+
+@ActivityType("GroundContact")
+public class GroundContact {
+
+    @Parameter
+    public Double drainMultiplier = 5.0; // Multiplier for power drain during ground contact
+
+    @Parameter
+    public Duration duration = Duration.duration(10, Duration.MINUTES);
+
+    @ActivityType.EffectModel
+    public void run(Mission model) {
+
+        /*
+         Increase power drain during ground contact
+        */
+        Double initialFlightComputerDrainRate = currentValue(model.powerModel.FlightComputerDrainRate);
+        DiscreteEffects.increase(model.powerModel.FlightComputerDrainRate, 
+            initialFlightComputerDrainRate * (drainMultiplier - 1.0));
+        delay(duration);
+        DiscreteEffects.decrease(model.powerModel.FlightComputerDrainRate, 
+            initialFlightComputerDrainRate * (drainMultiplier - 1.0));
+
+    }
+}

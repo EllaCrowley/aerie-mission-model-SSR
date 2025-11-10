@@ -27,6 +27,8 @@ public final class Mission {
   // Example model declaration
   //public final DataModel dataModel;
 
+  public final PowerModel powerModel;
+
   public Mission(final gov.nasa.jpl.aerie.merlin.framework.Registrar registrar, final Configuration config) {
     this.errorRegistrar = new Registrar(registrar, Registrar.ErrorBehavior.Log);
 
@@ -34,11 +36,13 @@ public final class Mission {
     // ExampleResource = resource(discrete(0.0));
     // errorRegistrar.discrete("ExampleResource", ExampleResource, new DoubleValueMapper());
 
-    // Example model instantiation
-    //this.dataModel = new DataModel(this.errorRegistrar, config);
+    // Model instantiation
+    this.powerModel = new PowerModel(this.errorRegistrar, config);
 
-    // Example daemon task call
-    // spawn(dataModel::integrateDataRate);
+    // Daemon task call
+    spawn(powerModel::solarArrayCharge);
+    spawn(powerModel::flightComputerDrain);
+    spawn(powerModel::solarArrayChargingCycle);
 
   }
 }
