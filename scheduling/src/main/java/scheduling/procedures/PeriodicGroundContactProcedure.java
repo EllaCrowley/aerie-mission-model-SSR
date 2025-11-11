@@ -11,7 +11,7 @@ import missionmodel.Utils;
 import java.util.Map;
 
 @SchedulingProcedure
-public record SampleProcedure() implements Goal {
+public record PeriodicGroundContactProcedure() implements Goal {
   @Override
   public void run(EditablePlan plan) {
     final var firstTime = Duration.hours(1);

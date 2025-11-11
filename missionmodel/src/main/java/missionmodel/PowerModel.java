@@ -21,15 +21,16 @@ public class PowerModel {
 
     public MutableResource<Discrete<Double>> BatteryCharge; // Wh
 
-    public static final Double INITIAL_SOLAR_ARRAY_CHARGE_RATE = 200.0; // Wh
+    public static final Double SOLAR_ARRAY_CHARGE_RATE = 200.0; // Wh
     public static final Double INITIAL_BATTERY_CHARGE = 2000.0; // Wh
-    public static final Double INITIAL_COMPUTER_DRAIN_RATE = 100.0; // Wh
+    public static final Double BATTERY_CAPACITY = 2000.0; // Wh
+    public static final Double FLIGHT_COMPUTER_DRAIN_RATE = 100.0; // Wh
 
     public PowerModel(Registrar registrar, Configuration config)
     {
-        SolarArrayChargingRate = resource(discrete(INITIAL_SOLAR_ARRAY_CHARGE_RATE)); // Solar array charging rate while in sunlight
+        SolarArrayChargingRate = resource(discrete(SOLAR_ARRAY_CHARGE_RATE)); // Solar array charging rate while in sunlight
         BatteryCharge = resource(discrete(INITIAL_BATTERY_CHARGE)); // Initial battery charge
-        FlightComputerDrainRate = resource(discrete(INITIAL_COMPUTER_DRAIN_RATE)); // Default drain rate
+        FlightComputerDrainRate = resource(discrete(FLIGHT_COMPUTER_DRAIN_RATE)); // Default drain rate
         registrar.discrete("SolarArrayChargingRate", SolarArrayChargingRate, withUnit("Watt hours", new DoubleValueMapper()));
         registrar.discrete("BatteryCharge", BatteryCharge, withUnit("Watt hours", new DoubleValueMapper()));
         registrar.discrete("FlightComputerDrainRate", FlightComputerDrainRate, withUnit("Watt hours", new DoubleValueMapper()));
@@ -41,11 +42,16 @@ public class PowerModel {
         {
             delay(SOLAR_ARRAY_CHARGE_INTERVAL);
             Double currentSolarChargeRate = currentValue(SolarArrayChargingRate);
-            DiscreteEffects.increase(BatteryCharge, 
-                currentSolarChargeRate * SOLAR_ARRAY_CHARGE_INTERVAL.ratioOver(Duration.HOUR));   
+            if (currentValue(BatteryCharge) < BATTERY_CAPACITY) {
+                Double chargeAdd = currentSolarChargeRate * SOLAR_ARRAY_CHARGE_INTERVAL.ratioOver(Duration.HOUR);
+                Double chargeAddToReachCapacity = BATTERY_CAPACITY - currentValue(BatteryCharge);
+                DiscreteEffects.increase(BatteryCharge, Math.min(
+                    chargeAdd,
+                    chargeAddToReachCapacity));
+            }
         }
     }
-    
+
     public void flightComputerDrain() {
         Duration DRAIN_INTERVAL = Duration.duration(1, Duration.HOURS);
         while(true) {
@@ -60,7 +66,7 @@ public class PowerModel {
         Duration orbitalPeriod = Duration.duration(100, Duration.MINUTES);
         
         while(true) {
-            DiscreteEffects.set(SolarArrayChargingRate, INITIAL_SOLAR_ARRAY_CHARGE_RATE);
+            DiscreteEffects.set(SolarArrayChargingRate, SOLAR_ARRAY_CHARGE_RATE);
             delay(orbitalPeriod.minus(eclipseDuration));
             DiscreteEffects.set(SolarArrayChargingRate, 0.0);
             delay(eclipseDuration);

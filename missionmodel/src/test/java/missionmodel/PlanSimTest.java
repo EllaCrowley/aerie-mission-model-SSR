@@ -1,29 +1,29 @@
 package missionmodel;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.time.Instant;
+import java.util.Map;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+
 import gov.nasa.ammos.aerie.procedural.scheduling.plan.EditablePlan;
 import gov.nasa.ammos.aerie.procedural.scheduling.utils.DefaultEditablePlanDriver;
-import gov.nasa.ammos.aerie.procedural.timeline.collections.profiles.Real;
 import gov.nasa.ammos.aerie.procedural.timeline.collections.profiles.Numbers;
 import gov.nasa.ammos.aerie.procedural.timeline.payloads.activities.DirectiveStart;
 import gov.nasa.ammos.aerie.procedural.timeline.plan.SimulationResults;
 import gov.nasa.ammos.aerie.procedural.utils.TypeUtilsEditablePlanAdapter;
 import gov.nasa.ammos.aerie.procedural.utils.TypeUtilsPlanAdapter;
-import gov.nasa.jpl.aerie.contrib.serialization.mappers.DurationValueMapper;
-import gov.nasa.jpl.aerie.contrib.serialization.mappers.EnumValueMapper;
 import gov.nasa.jpl.aerie.merlin.driver.MissionModel;
 import gov.nasa.jpl.aerie.merlin.protocol.types.Duration;
 import gov.nasa.jpl.aerie.orchestration.simulation.SimulationUtility;
 import gov.nasa.jpl.aerie.types.Plan;
 import gov.nasa.jpl.aerie.types.Timestamp;
 import missionmodel.generated.GeneratedModelType;
-
-import org.apache.commons.math3.analysis.function.Power;
-import org.junit.jupiter.api.*;
-
-import java.time.Instant;
-import java.util.Map;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Example test for simulating a mission model
@@ -88,7 +88,7 @@ public class PlanSimTest {
     assertEquals(PowerModel.INITIAL_BATTERY_CHARGE, Double.valueOf(String.valueOf(modeProfile.sample(Duration.hours(0.5)))));
 
     Numbers rateProfile = simResults.resource("SolarArrayChargingRate", Numbers.deserializer());
-    assertEquals(PowerModel.INITIAL_SOLAR_ARRAY_CHARGE_RATE, Double.valueOf(String.valueOf(rateProfile.sample(Duration.hours(0.5)))));
+    assertEquals(PowerModel.SOLAR_ARRAY_CHARGE_RATE, Double.valueOf(String.valueOf(rateProfile.sample(Duration.hours(0.5)))));
 
   }
 
