@@ -19,11 +19,17 @@ public class PowerModel {
 
     public MutableResource<Discrete<Double>> FlightComputerDrainRate; // Wh
 
+    public MutableResource<Discrete<Double>> BatteryCharge; // Wh
+
+    public static final Double INITIAL_SOLAR_ARRAY_CHARGE_RATE = 200.0; // Wh
+    public static final Double INITIAL_BATTERY_CHARGE = 2000.0; // Wh
+    public static final Double INITIAL_COMPUTER_DRAIN_RATE = 100.0; // Wh
+
     public PowerModel(Registrar registrar, Configuration config)
     {
-        SolarArrayChargingRate = resource(discrete(200.0)); // Solar array charging rate while in sunlight
-        BatteryCharge = resource(discrete(2000.0)); // Initial battery charge
-        FlightComputerDrainRate = resource(discrete(100.0)); // Default drain rate
+        SolarArrayChargingRate = resource(discrete(INITIAL_SOLAR_ARRAY_CHARGE_RATE)); // Solar array charging rate while in sunlight
+        BatteryCharge = resource(discrete(INITIAL_BATTERY_CHARGE)); // Initial battery charge
+        FlightComputerDrainRate = resource(discrete(INITIAL_COMPUTER_DRAIN_RATE)); // Default drain rate
         registrar.discrete("SolarArrayChargingRate", SolarArrayChargingRate, withUnit("Watt hours", new DoubleValueMapper()));
         registrar.discrete("BatteryCharge", BatteryCharge, withUnit("Watt hours", new DoubleValueMapper()));
         registrar.discrete("FlightComputerDrainRate", FlightComputerDrainRate, withUnit("Watt hours", new DoubleValueMapper()));
@@ -52,14 +58,13 @@ public class PowerModel {
     public void solarArrayChargingCycle() {
         Duration eclipseDuration = Duration.duration(30, Duration.MINUTES);
         Duration orbitalPeriod = Duration.duration(100, Duration.MINUTES);
-        Double initialSolarArrayChargeRate = currentValue(SolarArrayChargingRate);
         
         while(true) {
-            DiscreteEffects.set(SolarArrayChargingRate, initialSolarArrayChargeRate);
+            DiscreteEffects.set(SolarArrayChargingRate, INITIAL_SOLAR_ARRAY_CHARGE_RATE);
             delay(orbitalPeriod.minus(eclipseDuration));
             DiscreteEffects.set(SolarArrayChargingRate, 0.0);
             delay(eclipseDuration);
         }
     }
-    // TODO: model eclipse as an activity that occurs for a duration of 20min every 100min orbital period
+    // TODO: model eclipse as an external event that occurs for a duration of 30min every 100min orbital period
 }

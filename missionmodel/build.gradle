@@ -23,6 +23,14 @@ tasks.named('test') {
 }
 
 dependencies {
+
+  // procedural scheduling libraries
+  annotationProcessor "gov.nasa.ammos.aerie.procedural:processor:" + project.aerieVersion
+  implementation "gov.nasa.ammos.aerie.procedural:scheduling:" + project.aerieVersion
+  implementation "gov.nasa.ammos.aerie.procedural:timeline:" + project.aerieVersion
+  implementation "gov.nasa.ammos.aerie.procedural:constraints:" + project.aerieVersion
+
+  // merlin framework libraries
   annotationProcessor 'gov.nasa.jpl.aerie:merlin-framework-processor:' + project.aerieVersion
   implementation 'gov.nasa.jpl.aerie:contrib:' + project.aerieVersion
   implementation 'gov.nasa.jpl.aerie:merlin-framework:' + project.aerieVersion
@@ -31,6 +39,11 @@ dependencies {
   implementation 'gov.nasa.jpl.aerie:parsing-utilities:' + project.aerieVersion
   implementation 'gov.nasa.jpl.aerie:type-utils:' + project.aerieVersion
 
+  implementation 'gov.nasa.ammos.aerie.procedural:utils:' + project.aerieVersion
+  implementation 'gov.nasa.jpl.aerie:orchestration-utils:' + project.aerieVersion
+  implementation 'gov.nasa.jpl.aerie:permissions:' + project.aerieVersion
+
+  // junit
   testImplementation 'gov.nasa.jpl.aerie:merlin-framework-junit:' + project.aerieVersion
   testImplementation 'org.junit.jupiter:junit-jupiter:+'
   testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.10.0'
