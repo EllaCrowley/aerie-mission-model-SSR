@@ -1,8 +1,8 @@
 @MissionModel(model = Mission.class)
 @WithMappers(BasicValueMappers.class)
 @WithConfiguration(Configuration.class)
-@WithActivityType(GroundContact.class) // for new activity type
-@WithMetadata(name = "unit", annotation = gov.nasa.jpl.aerie.contrib.metadata.Unit.class) // for unit support
+@WithActivityType(GroundContact.class)
+@WithMetadata(name = "unit", annotation = gov.nasa.jpl.aerie.contrib.metadata.Unit.class)
 package missionmodel;
 
 import gov.nasa.jpl.aerie.contrib.serialization.rulesets.BasicValueMappers;

@@ -76,7 +76,7 @@ public class PlanSimTest {
   @Test
   final void testSchedulePeriodicDataCollections() {
 
-    // Create three activities. Two GroundContact activities and a CollectData in between
+    // Create two ground contact activities
     plan.create("GroundContact", new DirectiveStart.Absolute(Duration.hours(2)), Map.of());
     plan.create("GroundContact", new DirectiveStart.Absolute(Duration.hours(12)), Map.of());
 
