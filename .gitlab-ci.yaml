@@ -3,6 +3,10 @@ stages:
   - build
   - test
 
+default:
+  tags:
+    - colorado-docker
+
 clean-job:
   stage: clean
   script:
