@@ -10,6 +10,10 @@ import missionmodel.Utils;
 
 import java.util.Map;
 
+/*
+ * Scheduling procedure to create periodic GroundContact activities every 5 hours, 
+ * starting at hour 1, and lasting for 10 minutes each.
+ */
 @SchedulingProcedure
 public record PeriodicGroundContactProcedure() implements Goal {
   @Override

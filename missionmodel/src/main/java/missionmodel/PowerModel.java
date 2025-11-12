@@ -13,6 +13,10 @@ import gov.nasa.jpl.aerie.contrib.streamline.modeling.discrete.Discrete;
 import gov.nasa.jpl.aerie.contrib.streamline.modeling.discrete.DiscreteEffects;
 import gov.nasa.jpl.aerie.merlin.protocol.types.Duration;
 
+/**
+ * Basic power model for Element 1.
+ * Models solar array charging, flight computer power drain, and battery charge.
+ */
 public class PowerModel {
 
     public MutableResource<Discrete<Double>> SolarArrayChargingRate; // Wh 
@@ -36,6 +40,10 @@ public class PowerModel {
         registrar.discrete("FlightComputerDrainRate", FlightComputerDrainRate, withUnit("Watt hours", new DoubleValueMapper()));
     }
 
+    /*
+     * Solar array charging daemon.
+     * Incrementally increases battery charge based on solar array charging rate every hour.
+     */
     public void solarArrayCharge() {
         Duration SOLAR_ARRAY_CHARGE_INTERVAL = Duration.duration(1, Duration.HOURS);
         while(true)
@@ -52,6 +60,10 @@ public class PowerModel {
         }
     }
 
+    /*
+     * Flight computer power drain daemon.
+     * Incrementally decreases battery charge based on flight computer drain rate every hour.
+     */
     public void flightComputerDrain() {
         Duration DRAIN_INTERVAL = Duration.duration(1, Duration.HOURS);
         while(true) {
@@ -60,17 +72,4 @@ public class PowerModel {
                 DRAIN_INTERVAL.ratioOver(Duration.HOURS));
         }
     }
-
-    public void solarArrayChargingCycle() {
-        Duration eclipseDuration = Duration.duration(30, Duration.MINUTES);
-        Duration orbitalPeriod = Duration.duration(100, Duration.MINUTES);
-        
-        while(true) {
-            DiscreteEffects.set(SolarArrayChargingRate, SOLAR_ARRAY_CHARGE_RATE);
-            delay(orbitalPeriod.minus(eclipseDuration));
-            DiscreteEffects.set(SolarArrayChargingRate, 0.0);
-            delay(eclipseDuration);
-        }
-    }
-    // TODO: model eclipse as an external event that occurs for a duration of 30min every 100min orbital period
 }

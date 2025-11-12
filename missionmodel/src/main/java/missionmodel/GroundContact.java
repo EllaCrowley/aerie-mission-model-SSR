@@ -9,6 +9,9 @@ import gov.nasa.jpl.aerie.merlin.framework.annotations.ActivityType;
 import gov.nasa.jpl.aerie.merlin.framework.annotations.Export.Parameter;
 import gov.nasa.jpl.aerie.merlin.protocol.types.Duration;
 
+/*
+ * Basic ground contact activity, which increases flight computer power drain..
+ */
 @ActivityType("GroundContact")
 public class GroundContact {
 

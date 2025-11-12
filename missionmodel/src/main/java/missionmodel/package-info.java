@@ -2,6 +2,7 @@
 @WithMappers(BasicValueMappers.class)
 @WithConfiguration(Configuration.class)
 @WithActivityType(GroundContact.class)
+@WithActivityType(Eclipse.class)
 @WithMetadata(name = "unit", annotation = gov.nasa.jpl.aerie.contrib.metadata.Unit.class)
 package missionmodel;
 

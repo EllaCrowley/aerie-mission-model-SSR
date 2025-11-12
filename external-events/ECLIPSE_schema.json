@@ -1,0 +1,27 @@
+{
+  "source_types": {
+    "Eclipse": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "number"                
+        },
+        "serviceVersion": {
+          "type": "number"
+        }
+      },
+      "required": ["version", "serviceVersion"]
+    }
+  },
+  "event_types": {
+    "EclipseWindow": {
+      "type": "object",
+      "required": ["durationMinutes"],
+      "properties": {
+        "durationMinutes": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}

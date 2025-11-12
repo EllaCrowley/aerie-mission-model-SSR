@@ -6,6 +6,9 @@ import gov.nasa.ammos.aerie.procedural.constraints.annotations.ConstraintProcedu
 import gov.nasa.ammos.aerie.procedural.timeline.plan.Plan;
 import gov.nasa.ammos.aerie.procedural.timeline.plan.SimulationResults;
 
+/*
+ * Constraint procedure to ensure that GroundContact activities do not overlap in time.
+ */
 @ConstraintProcedure
 public record GroundContactOverlap() implements Constraint {
   @Override

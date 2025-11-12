@@ -25,6 +25,5 @@ public final class Mission {
     // Daemon task call
     spawn(powerModel::solarArrayCharge);
     spawn(powerModel::flightComputerDrain);
-    spawn(powerModel::solarArrayChargingCycle);
   }
 }

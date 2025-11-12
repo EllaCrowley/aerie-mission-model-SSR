@@ -7,6 +7,9 @@ import gov.nasa.ammos.aerie.procedural.timeline.collections.profiles.Real;
 import gov.nasa.ammos.aerie.procedural.timeline.plan.Plan;
 import gov.nasa.ammos.aerie.procedural.timeline.plan.SimulationResults;
 
+/*
+ * Constraint procedure to ensure that the battery charge remains above a specified threshold.
+ */
 @ConstraintProcedure
 public record BatteryChargeThreshold(Double threshold) implements Constraint {
   @Override

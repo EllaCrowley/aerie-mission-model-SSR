@@ -1,0 +1,405 @@
+{
+  "source": {
+    "attributes": {
+      "version": 2,
+      "serviceVersion": 1
+    },
+    "derivation_group_name": "Eclipse",
+    "period": {
+      "start_time": "2026-08-01T01:00:00",
+      "end_time": "2026-08-04T00:00:00"
+    },
+    "key": "Eclipse_Element1_20260801T000000Z",
+    "source_type_name": "Eclipse",
+    "valid_at": "2026-08-01T01:00:00"
+  },
+  "events": [
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "da7f48006f4c4470a309254ceeaf8008",
+      "start_time": "2026-08-01T01:00:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "ab302abe30fd468091635361a1f4dd0a",
+      "start_time": "2026-08-01T02:40:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "59a726f3d97a400283d56723e902ab36",
+      "start_time": "2026-08-01T04:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "01d13619ea604d3087931a8d8e9f39ed",
+      "start_time": "2026-08-01T06:00:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "9f50d4591b054a0f900635fa6eb634a4",
+      "start_time": "2026-08-01T07:40:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "6b56d3adc74548efb06c31367fdf17cf",
+      "start_time": "2026-08-01T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "3ab20bf3da444645b25237f82e22cba7",
+      "start_time": "2026-08-01T11:00:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "b983f631809b4ee190b166a84eef3a7b",
+      "start_time": "2026-08-01T12:40:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "f69f78f8b703478bba0df3ac72a651f2",
+      "start_time": "2026-08-01T14:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "652f6675b00b437fa3d374eb1b977991",
+      "start_time": "2026-08-01T16:00:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "7008c20a181e4461ad9859316a3cb50a",
+      "start_time": "2026-08-01T17:40:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "e6ded82f1a514c458b088aab3d44d649",
+      "start_time": "2026-08-01T19:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "990513f62d7a47ceb6740495e246eee4",
+      "start_time": "2026-08-01T21:00:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "ed54c46fcae6420aaa9264eb79c9c394",
+      "start_time": "2026-08-01T22:40:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "191d4b726d5a403493af53952040f4c1",
+      "start_time": "2026-08-02T00:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "8f8e2af3c78649c99c927b2f4af11de6",
+      "start_time": "2026-08-02T02:00:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "baf7b79c96f345a7b846ab1d7e347663",
+      "start_time": "2026-08-02T03:40:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "6f5c1a5a36154311b959a361e1c42f43",
+      "start_time": "2026-08-02T05:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "50820842493147df9e6820755eb1a441",
+      "start_time": "2026-08-02T07:00:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "9df7b138b3b44157bac88a520412ea24",
+      "start_time": "2026-08-02T08:40:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "bb6990b1c9154bd981f0f5b87e1bbea9",
+      "start_time": "2026-08-02T10:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "4e1de745a02c4b73a1182b2a4af14688",
+      "start_time": "2026-08-02T12:00:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "8d5119b9a97a41da89c9c2e1169ce6d7",
+      "start_time": "2026-08-02T13:40:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "3e120ef4eed44f2f9227bc268aa53073",
+      "start_time": "2026-08-02T15:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "0bd1071ce0d44e4ea438e9d938581bac",
+      "start_time": "2026-08-02T17:00:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "b0a9c10ffea64206a5bc28c669fb6969",
+      "start_time": "2026-08-02T18:40:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "156c86e3f87547eb990dcc18e62a0d33",
+      "start_time": "2026-08-02T20:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "70f3436ea036401391324a38f8ec93c7",
+      "start_time": "2026-08-02T22:00:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "8d36615db3c94981846ada90346659ee",
+      "start_time": "2026-08-02T23:40:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "76d26b38b099421e8c32b8cfe488d79c",
+      "start_time": "2026-08-03T01:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "f3e6b5490a3342c88963028904f6ea00",
+      "start_time": "2026-08-03T03:00:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "6f82f991a8054cdda215aa327641ecb8",
+      "start_time": "2026-08-03T04:40:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "9520437966424f25a16585fb09f91e58",
+      "start_time": "2026-08-03T06:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "a4e313b4dbc144ee8af625ad4b333ab1",
+      "start_time": "2026-08-03T08:00:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "5c592c860d0e4cd4b0d162658ecbab7f",
+      "start_time": "2026-08-03T09:40:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "d53c14389f084bbdbfcbcde88075fac7",
+      "start_time": "2026-08-03T11:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "5a3b18b38bc44c1db936e851b7f522e4",
+      "start_time": "2026-08-03T13:00:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "2a0bb0c6a0f140c8a15c150adc4349c3",
+      "start_time": "2026-08-03T14:40:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "96abffe7cdc4406b92f9348d680a378d",
+      "start_time": "2026-08-03T16:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "cf6891c87cfa4031aaa0c65e1e873113",
+      "start_time": "2026-08-03T18:00:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "e5af5380bcbf4ed2a33caae03194fa06",
+      "start_time": "2026-08-03T19:40:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "093e5c0b236e4098a337f30d2b88d57b",
+      "start_time": "2026-08-03T21:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "durationMinutes": 30
+      },
+      "duration": "00:30:00",
+      "event_type_name": "EclipseWindow",
+      "key": "69344221073a4f7ab15bc06ba5305501",
+      "start_time": "2026-08-03T23:00:00.000Z"
+    }
+  ]
+}
