@@ -1,6 +1,5 @@
 package missionmodel;
 
-import static gov.nasa.jpl.aerie.contrib.streamline.core.Resources.currentValue;
 import static gov.nasa.jpl.aerie.merlin.framework.ModelActions.delay;
 
 import gov.nasa.jpl.aerie.contrib.streamline.modeling.discrete.DiscreteEffects;
@@ -23,10 +22,9 @@ public class Eclipse {
         /*
          Drop solar array charging rate to zero during eclipse
         */
-        Double initialSolarArrayChargingRate = currentValue(model.powerModel.SolarArrayChargingRate);
         DiscreteEffects.set(model.powerModel.SolarArrayChargingRate, 0.0);
         delay(Duration.minutes(durationMinutes));
-        DiscreteEffects.set(model.powerModel.SolarArrayChargingRate, initialSolarArrayChargingRate);
+        DiscreteEffects.set(model.powerModel.SolarArrayChargingRate, missionmodel.PowerModel.SOLAR_ARRAY_CHARGE_RATE);
 
     }
 }

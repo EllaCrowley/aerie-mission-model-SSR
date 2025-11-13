@@ -1,6 +1,5 @@
 package missionmodel;
 
-import static gov.nasa.jpl.aerie.contrib.streamline.core.Resources.currentValue;
 import static gov.nasa.jpl.aerie.merlin.framework.ModelActions.delay;
 
 import gov.nasa.jpl.aerie.contrib.metadata.Unit;
@@ -28,10 +27,9 @@ public class GroundContact {
         /*
          Increase power drain during ground contact
         */
-        Double initialFlightComputerDrainRate = currentValue(model.powerModel.FlightComputerDrainRate);
         DiscreteEffects.set(model.powerModel.FlightComputerDrainRate, contactPowerDrain);
         delay(duration);
-        DiscreteEffects.set(model.powerModel.FlightComputerDrainRate, initialFlightComputerDrainRate);
+        DiscreteEffects.set(model.powerModel.FlightComputerDrainRate, missionmodel.PowerModel.FLIGHT_COMPUTER_DRAIN_RATE);
 
     }
 }
