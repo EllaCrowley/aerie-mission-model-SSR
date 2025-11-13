@@ -14,6 +14,7 @@ import org.junit.jupiter.api.TestInstance;
 import gov.nasa.ammos.aerie.procedural.scheduling.plan.EditablePlan;
 import gov.nasa.ammos.aerie.procedural.scheduling.utils.DefaultEditablePlanDriver;
 import gov.nasa.ammos.aerie.procedural.timeline.collections.profiles.Numbers;
+import gov.nasa.ammos.aerie.procedural.timeline.collections.profiles.Real;
 import gov.nasa.ammos.aerie.procedural.timeline.payloads.activities.DirectiveStart;
 import gov.nasa.ammos.aerie.procedural.timeline.plan.SimulationResults;
 import gov.nasa.ammos.aerie.procedural.utils.TypeUtilsEditablePlanAdapter;
@@ -84,7 +85,7 @@ public class PlanSimTest {
     SimulationResults simResults = plan.simulate();
 
     // Perform assertions
-    Numbers<Number> modeProfile = simResults.resource("BatteryCharge", Numbers.deserializer());
+    Real modeProfile = simResults.resource("BatteryCharge", Real.deserializer());
     assertEquals(PowerModel.INITIAL_BATTERY_CHARGE, Double.valueOf(String.valueOf(modeProfile.sample(Duration.hours(0.5)))));
 
     Numbers<Number> rateProfile = simResults.resource("SolarArrayChargingRate", Numbers.deserializer());

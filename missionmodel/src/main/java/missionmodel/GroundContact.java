@@ -27,9 +27,9 @@ public class GroundContact {
         /*
          Increase power drain during ground contact
         */
-        DiscreteEffects.set(model.powerModel.FlightComputerDrainRate, contactPowerDrain);
+        DiscreteEffects.set(model.powerModel.flightComputerDrainRate, contactPowerDrain);
         delay(duration);
-        DiscreteEffects.set(model.powerModel.FlightComputerDrainRate, missionmodel.PowerModel.FLIGHT_COMPUTER_DRAIN_RATE);
+        DiscreteEffects.set(model.powerModel.flightComputerDrainRate, missionmodel.PowerModel.FLIGHT_COMPUTER_DRAIN_RATE);
 
     }
 }

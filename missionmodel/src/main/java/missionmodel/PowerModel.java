@@ -2,16 +2,19 @@ package missionmodel;
 
 import static gov.nasa.jpl.aerie.contrib.metadata.UnitRegistrar.withUnit;
 import static gov.nasa.jpl.aerie.contrib.streamline.core.MutableResource.resource;
-import static gov.nasa.jpl.aerie.contrib.streamline.core.Resources.currentValue;
 import static gov.nasa.jpl.aerie.contrib.streamline.modeling.discrete.Discrete.discrete;
-import static gov.nasa.jpl.aerie.merlin.framework.ModelActions.delay;
+import static gov.nasa.jpl.aerie.contrib.streamline.modeling.discrete.monads.DiscreteResourceMonad.map;
+import static gov.nasa.jpl.aerie.contrib.streamline.modeling.polynomial.PolynomialResources.asPolynomial;
+import static gov.nasa.jpl.aerie.contrib.streamline.modeling.polynomial.PolynomialResources.clampedIntegrate;
+import static gov.nasa.jpl.aerie.contrib.streamline.modeling.polynomial.PolynomialResources.constant;
+import static gov.nasa.jpl.aerie.contrib.streamline.modeling.polynomial.PolynomialResources.assumeLinear;
 
 import gov.nasa.jpl.aerie.contrib.serialization.mappers.DoubleValueMapper;
 import gov.nasa.jpl.aerie.contrib.streamline.core.MutableResource;
+import gov.nasa.jpl.aerie.contrib.streamline.core.Resource;
 import gov.nasa.jpl.aerie.contrib.streamline.modeling.Registrar;
 import gov.nasa.jpl.aerie.contrib.streamline.modeling.discrete.Discrete;
-import gov.nasa.jpl.aerie.contrib.streamline.modeling.discrete.DiscreteEffects;
-import gov.nasa.jpl.aerie.merlin.protocol.types.Duration;
+import gov.nasa.jpl.aerie.contrib.streamline.modeling.polynomial.Polynomial;
 
 /**
  * Basic power model for Element 1.
@@ -19,11 +22,11 @@ import gov.nasa.jpl.aerie.merlin.protocol.types.Duration;
  */
 public class PowerModel {
 
-    public MutableResource<Discrete<Double>> SolarArrayChargingRate; // Wh 
+    public MutableResource<Discrete<Double>> solarArrayChargingRate; // Wh 
 
-    public MutableResource<Discrete<Double>> FlightComputerDrainRate; // Wh
+    public MutableResource<Discrete<Double>> flightComputerDrainRate; // Wh
 
-    public MutableResource<Discrete<Double>> BatteryCharge; // Wh
+    public Resource<Polynomial> batteryCharge; // Wh
 
     public static final Double SOLAR_ARRAY_CHARGE_RATE = 200.0; // Wh
     public static final Double INITIAL_BATTERY_CHARGE = 2000.0; // Wh
@@ -32,44 +35,26 @@ public class PowerModel {
 
     public PowerModel(Registrar registrar, Configuration config)
     {
-        SolarArrayChargingRate = resource(discrete(SOLAR_ARRAY_CHARGE_RATE)); // Solar array charging rate while in sunlight
-        BatteryCharge = resource(discrete(INITIAL_BATTERY_CHARGE)); // Initial battery charge
-        FlightComputerDrainRate = resource(discrete(FLIGHT_COMPUTER_DRAIN_RATE)); // Default drain rate
-        registrar.discrete("SolarArrayChargingRate", SolarArrayChargingRate, withUnit("Watt hours", new DoubleValueMapper()));
-        registrar.discrete("BatteryCharge", BatteryCharge, withUnit("Watt hours", new DoubleValueMapper()));
-        registrar.discrete("FlightComputerDrainRate", FlightComputerDrainRate, withUnit("Watt hours", new DoubleValueMapper()));
-    }
+        solarArrayChargingRate = resource(discrete(SOLAR_ARRAY_CHARGE_RATE)); // Solar array charging rate while in sunlight
+        flightComputerDrainRate = resource(discrete(FLIGHT_COMPUTER_DRAIN_RATE)); // Default drain rate
 
-    /*
-     * Solar array charging daemon.
-     * Incrementally increases battery charge based on solar array charging rate every hour.
-     */
-    public void solarArrayCharge() {
-        Duration SOLAR_ARRAY_CHARGE_INTERVAL = Duration.duration(1, Duration.HOURS);
-        while(true)
-        {
-            delay(SOLAR_ARRAY_CHARGE_INTERVAL);
-            Double currentSolarChargeRate = currentValue(SolarArrayChargingRate);
-            if (currentValue(BatteryCharge) < BATTERY_CAPACITY) {
-                Double chargeAdd = currentSolarChargeRate * SOLAR_ARRAY_CHARGE_INTERVAL.ratioOver(Duration.HOUR);
-                Double chargeAddToReachCapacity = BATTERY_CAPACITY - currentValue(BatteryCharge);
-                DiscreteEffects.increase(BatteryCharge, Math.min(
-                    chargeAdd,
-                    chargeAddToReachCapacity));
-            }
-        }
-    }
+        Resource<Discrete<Double>> batteryChargeRate = map(solarArrayChargingRate, flightComputerDrainRate,
+          (Double source$, Double sink$) -> {
+            return source$ - sink$;
+          });
 
-    /*
-     * Flight computer power drain daemon.
-     * Incrementally decreases battery charge based on flight computer drain rate every hour.
-     */
-    public void flightComputerDrain() {
-        Duration DRAIN_INTERVAL = Duration.duration(1, Duration.HOURS);
-        while(true) {
-            delay(DRAIN_INTERVAL);
-            DiscreteEffects.decrease(BatteryCharge, currentValue(FlightComputerDrainRate) *
-                DRAIN_INTERVAL.ratioOver(Duration.HOURS));
-        }
+        // model battery charge as integral of charge rate, with min 0 and max BATTERY_CAPACITY
+        var result = clampedIntegrate(
+                asPolynomial(batteryChargeRate),
+                constant(0),
+                constant(BATTERY_CAPACITY),
+                INITIAL_BATTERY_CHARGE);
+        batteryCharge = result.integral();
+
+        registrar.discrete("SolarArrayChargingRate", solarArrayChargingRate, withUnit("Watt hours", new DoubleValueMapper()));
+        registrar.discrete("FlightComputerDrainRate", flightComputerDrainRate, withUnit("Watt hours", new DoubleValueMapper()));
+        registrar.discrete("BatteryChargeRate", batteryChargeRate, withUnit("Watt hours", new DoubleValueMapper()));
+        // must assume 1-degree polynomial to register
+        registrar.real("BatteryCharge", assumeLinear(batteryCharge));
     }
 }

@@ -2,8 +2,6 @@ package missionmodel;
 
 import gov.nasa.jpl.aerie.contrib.streamline.modeling.Registrar;
 
-import static gov.nasa.jpl.aerie.merlin.framework.ModelActions.spawn;
-
 /**
  * Top-level Mission Model Class
  *
@@ -22,8 +20,5 @@ public final class Mission {
 
     this.powerModel = new PowerModel(this.errorRegistrar, config);
 
-    // Daemon task call
-    spawn(powerModel::solarArrayCharge);
-    spawn(powerModel::flightComputerDrain);
   }
 }
