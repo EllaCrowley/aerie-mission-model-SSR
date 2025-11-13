@@ -1,0 +1,60 @@
+{
+  "source_types": {
+    "GroundContact": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "number"                
+        },
+        "serviceVersion": {
+          "type": "number"
+        }
+      },
+      "required": ["version", "serviceVersion"]
+    }
+  },
+  "event_types": {
+    "GroundContactWindow": {
+      "type": "object",
+      "required": ["passage_id", "passage_result_id", "satellite_id", "ground_station_id", "max_elevation", "aos", "tca", "los", "passage_status", "keyhole_bypass"],
+      "properties": {
+        "passage_id": {
+            "type": "string"
+        },
+        "passage_result_id": {
+            "type": "string"
+        },
+        "satellite_id": {
+            "type": "string"
+        },
+        "ground_station_id": {
+            "type": "string"
+        },
+        "max_elevation": {
+            "type": "number"
+        },
+        "aos": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "tca": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "los": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "passage_status": {
+            "type": "string"
+        },
+        "source": {
+            "type": "string"
+        },
+        "keyhole_bypass": {
+            "type": "boolean"
+        }
+      }
+    }
+  }
+}

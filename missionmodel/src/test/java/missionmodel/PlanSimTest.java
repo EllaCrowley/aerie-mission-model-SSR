@@ -85,7 +85,7 @@ public class PlanSimTest {
     SimulationResults simResults = plan.simulate();
 
     // Perform assertions
-    Real modeProfile = simResults.resource("BatteryCharge", Real.deserializer());
+    Numbers<Number> modeProfile = simResults.resource("BatteryCharge", Numbers.deserializer());
     assertEquals(PowerModel.INITIAL_BATTERY_CHARGE, Double.valueOf(String.valueOf(modeProfile.sample(Duration.hours(0.5)))));
 
     Numbers<Number> rateProfile = simResults.resource("SolarArrayChargingRate", Numbers.deserializer());
