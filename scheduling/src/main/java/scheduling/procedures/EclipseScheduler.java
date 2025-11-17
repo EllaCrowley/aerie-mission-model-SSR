@@ -34,15 +34,17 @@ public record EclipseScheduler() implements Goal {
   @Override
   public void run(EditablePlan plan) {
 
-    EventQuery eclipseExternalEvents = new EventQuery(null, List.of("EclipseWindow"), null);
+    final var eclipseEventTypeName = "EclipseWindow";
+    final var eclipseSourceTypeName = Utils.getEclipseActivityName();
+
+    EventQuery eclipseExternalEvents = new EventQuery(null, List.of(eclipseEventTypeName), null);
     List<ExternalEvent> eclipseEvents = plan.events(eclipseExternalEvents).collect();
 
     final var simResults = plan.simulate();
     final var existingSpans = simResults.instances();
-    final var eclipseActivityType = Utils.getEclipseActivityName();
 
     for (var currentEvent : eclipseEvents) {
-      if (!areThereSpansForType(existingSpans, currentEvent.getInterval().start, eclipseActivityType)) {
+      if (!areThereSpansForType(existingSpans, currentEvent.getInterval().start, eclipseSourceTypeName)) {
         final var newActivityName = currentEvent.key + " Activity";
         final var eclipseDurationMinutes = currentEvent.attributes.get("durationMinutes").asInt().get();
         plan.create(
@@ -51,7 +53,7 @@ public record EclipseScheduler() implements Goal {
               "durationMinutes", SerializedValue.of(eclipseDurationMinutes)
             )),
             newActivityName,
-            eclipseActivityType,
+            eclipseSourceTypeName,
             new DirectiveStart.Absolute(currentEvent.getInterval().start)
           )
         );

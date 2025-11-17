@@ -5,6 +5,7 @@ import gov.nasa.ammos.aerie.procedural.constraints.Violations;
 import gov.nasa.ammos.aerie.procedural.constraints.annotations.ConstraintProcedure;
 import gov.nasa.ammos.aerie.procedural.timeline.plan.Plan;
 import gov.nasa.ammos.aerie.procedural.timeline.plan.SimulationResults;
+import missionmodel.Utils;
 
 /*
  * Constraint procedure to ensure that GroundContact activities do not overlap in time.
@@ -14,7 +15,7 @@ public record GroundContactOverlap() implements Constraint {
   @Override
   public Violations run(Plan plan, SimulationResults simResults) {
     return Violations.on(
-      simResults.instances("GroundContact").countActive().greaterThan(1),
+      simResults.instances(Utils.getGroundContactActivityName()).countActive().greaterThan(1),
       true);
   }
 }

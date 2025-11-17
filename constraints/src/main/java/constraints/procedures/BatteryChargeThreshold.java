@@ -6,6 +6,7 @@ import gov.nasa.ammos.aerie.procedural.constraints.Violations;
 import gov.nasa.ammos.aerie.procedural.timeline.collections.profiles.Real;
 import gov.nasa.ammos.aerie.procedural.timeline.plan.Plan;
 import gov.nasa.ammos.aerie.procedural.timeline.plan.SimulationResults;
+import missionmodel.Utils;
 
 /*
  * Constraint procedure to ensure that the battery charge remains above a specified threshold.
@@ -14,10 +15,11 @@ import gov.nasa.ammos.aerie.procedural.timeline.plan.SimulationResults;
 public record BatteryChargeThreshold(Double threshold) implements Constraint {
   @Override
   public Violations run(Plan plan, SimulationResults simResults) {
-    final var charge = simResults.resource("BatteryCharge", Real.deserializer());
+    final var charge = simResults.resource(Utils.getBatteryChargeResourceName(), Real.deserializer());
+    final Double chargeThreshold = this.threshold != null ? this.threshold : missionmodel.PowerModel.LOW_BATTERY_THRESHOLD.value();
 
     return Violations.on(
-      charge.lessThan(threshold),
+      charge.lessThan(chargeThreshold),
       true
     );
   }

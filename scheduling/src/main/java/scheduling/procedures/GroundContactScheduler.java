@@ -36,21 +36,23 @@ public record GroundContactScheduler() implements Goal {
   @Override
   public void run(EditablePlan plan) {
 
-    EventQuery eclipseExternalEvents = new EventQuery(null, List.of("GroundContacts"), null);
-    List<ExternalEvent> eclipseEvents = plan.events(eclipseExternalEvents).collect();
+    final var contactEventTypeName = "GroundContactWindow";
+    final var contactSourceTypeName = Utils.getGroundContactActivityName();
+
+    EventQuery contactExternalEvents = new EventQuery(null, List.of(contactEventTypeName), null);
+    List<ExternalEvent> contactEvents = plan.events(contactExternalEvents).collect();
 
     final var simResults = plan.simulate();
     final var existingSpans = simResults.instances();
-    final var contactActivityType = Utils.getGroundContactActivityName()
 
-    for (var currentEvent : eclipseEvents) {
-      if (!areThereSpansForType(existingSpans, currentEvent.getInterval().start, contactActivityType)) {
+    for (var currentEvent : contactEvents) {
+      if (!areThereSpansForType(existingSpans, currentEvent.getInterval().start, contactSourceTypeName)) {
         final var newActivityName = currentEvent.key + " Activity";
         plan.create(
           new NewDirective(
             new AnyDirective(Map.of()),
             newActivityName,
-            contactActivityType,
+            contactSourceTypeName,
             new DirectiveStart.Absolute(currentEvent.getInterval().start)
           )
         );
