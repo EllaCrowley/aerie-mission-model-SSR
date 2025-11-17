@@ -30,9 +30,9 @@ def generate_events(start_time, end_time, duration_minutes=30, interval_minutes=
     return events
 
 def main():
-    start_time = "2026-08-01T01:00:00"
-    end_time = "2026-08-04T00:00:00"
-    
+    start_time = "2026-08-01T01:00:00Z"
+    end_time = "2026-08-04T00:00:00Z"
+
     data = {
         "source": {
             "attributes": {"version": 2, "serviceVersion": 1},

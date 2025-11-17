@@ -6,20 +6,20 @@
     },
     "derivation_group_name": "GroundContact",
     "period": {
-      "start_time": "2026-08-01T01:00:00",
-      "end_time": "2026-08-04T00:00:00"
+      "start_time": "2026-08-01T01:00:00Z",
+      "end_time": "2026-08-04T00:00:00Z"
     },
     "key": "GroundContact_Element1_20260801T000000Z",
     "source_type_name": "GroundContact",
-    "valid_at": "2026-08-01T01:00:00"
+    "valid_at": "2026-08-01T01:00:00Z"
   },
   "events": [
     {
       "attributes": {
-        "passage_id": "41be37432aa4484e92969dcc8492d821",
+        "passage_id": "687f34251b404fde902047cabc40e3a0",
         "passage_result_id": "200",
-        "satellite_id": "995aad8ffa0a46dc9364d147821c9dc2",
-        "ground_station_id": "0db5f095a7d245f3980e82d960f7b218",
+        "satellite_id": "d1615624e9cf4c6cafb2bff1347a8cdf",
+        "ground_station_id": "810360ec090b49baa6ca5ccf0e926773",
         "max_elevation": 1.2,
         "aos": "2026-08-01T01:00:00.000Z",
         "tca": "2026-08-01T01:00:00.000Z",
@@ -30,15 +30,15 @@
       },
       "duration": "00:10:00",
       "event_type_name": "GroundContactWindow",
-      "key": "05ce1ef2497347bbafe5832b1a971da1",
+      "key": "e9eeef396f314ad0867e8e8d9aa6d5c6",
       "start_time": "2026-08-01T01:00:00.000Z"
     },
     {
       "attributes": {
-        "passage_id": "166f7c8531be4eb9a1cae9929b1785d2",
+        "passage_id": "3ea50d3309f04631bbb94b2a778f3cf4",
         "passage_result_id": "200",
-        "satellite_id": "192d4ee415514e13b25479ca3606035e",
-        "ground_station_id": "23246133f78e4e42b01161ecc99eee72",
+        "satellite_id": "cc0c0ad486fc4cceb18df78ba4f0767d",
+        "ground_station_id": "407288806730410bbc43745c9c516329",
         "max_elevation": 1.2,
         "aos": "2026-08-01T06:00:00.000Z",
         "tca": "2026-08-01T06:00:00.000Z",
@@ -49,15 +49,15 @@
       },
       "duration": "00:10:00",
       "event_type_name": "GroundContactWindow",
-      "key": "763795d757814f308fbe28b58e9144c5",
+      "key": "7d39b92d85294d6eb769e4a4dc0a1c82",
       "start_time": "2026-08-01T06:00:00.000Z"
     },
     {
       "attributes": {
-        "passage_id": "ddec5fb81ae34a6a890366059f9c1d7c",
+        "passage_id": "1fd22f4c1dde42608f291effe9ec1fef",
         "passage_result_id": "200",
-        "satellite_id": "d47c9625298e4b62aab7847a86978642",
-        "ground_station_id": "59456550b2e64e60b784cf432b46733b",
+        "satellite_id": "4c1ffe1a081d4716ad2eaf62f9a6c774",
+        "ground_station_id": "b331d3e433db4e02aaadb4b7c13005f5",
         "max_elevation": 1.2,
         "aos": "2026-08-01T11:00:00.000Z",
         "tca": "2026-08-01T11:00:00.000Z",
@@ -68,15 +68,15 @@
       },
       "duration": "00:10:00",
       "event_type_name": "GroundContactWindow",
-      "key": "610c93f965fd41ae9194be415ced41b9",
+      "key": "2e70212c0265473086321871c2631089",
       "start_time": "2026-08-01T11:00:00.000Z"
     },
     {
       "attributes": {
-        "passage_id": "9c9d099233ae4bc5bcf7490603d760df",
+        "passage_id": "068e8746f24d451c94c0d6f928c23d4d",
         "passage_result_id": "200",
-        "satellite_id": "73ae9f3a08f4409e96425fb004c6a234",
-        "ground_station_id": "90b3df11b23f487c94be00e2183029e8",
+        "satellite_id": "c928a01b5c8c41839118243d1138e70f",
+        "ground_station_id": "019529387a194e2684199871ddef0726",
         "max_elevation": 1.2,
         "aos": "2026-08-01T16:00:00.000Z",
         "tca": "2026-08-01T16:00:00.000Z",
@@ -87,15 +87,15 @@
       },
       "duration": "00:10:00",
       "event_type_name": "GroundContactWindow",
-      "key": "d1d5801a03b34e9cba6481631ee9e3a7",
+      "key": "5edd8ad724fe4b979f7135132ac9705f",
       "start_time": "2026-08-01T16:00:00.000Z"
     },
     {
       "attributes": {
-        "passage_id": "8bc75fe6cbaf48a4b2daf7798ea97056",
+        "passage_id": "db95637bdd9b4db69c9dcebf9bea24a0",
         "passage_result_id": "200",
-        "satellite_id": "bce1541f2112404792c97ddb4e6e3044",
-        "ground_station_id": "323e535d9ddf4a5fbf9a543d5bf16ab4",
+        "satellite_id": "8df417903b484aa2aae388273deea69e",
+        "ground_station_id": "02b411f126594f238b2ad599b3cee0b2",
         "max_elevation": 1.2,
         "aos": "2026-08-01T21:00:00.000Z",
         "tca": "2026-08-01T21:00:00.000Z",
@@ -106,15 +106,15 @@
       },
       "duration": "00:10:00",
       "event_type_name": "GroundContactWindow",
-      "key": "690a0583c647480385e1bf26bef50cdd",
+      "key": "cb65d1c8a2fa42b99711be3919b8c4bd",
       "start_time": "2026-08-01T21:00:00.000Z"
     },
     {
       "attributes": {
-        "passage_id": "f502cdba398e4c68895ba895860c5823",
+        "passage_id": "5028d4a5755e4bb8bef684373d63c1ae",
         "passage_result_id": "200",
-        "satellite_id": "093c94fb87064bbdae83f6278c5fcac2",
-        "ground_station_id": "c33244544afb4df8824026e7b0c296be",
+        "satellite_id": "a527d67a5f7b492182d516131c0b6a2c",
+        "ground_station_id": "e54fc3b8b4554a308107f873b5b2d7d6",
         "max_elevation": 1.2,
         "aos": "2026-08-02T02:00:00.000Z",
         "tca": "2026-08-02T02:00:00.000Z",
@@ -125,15 +125,15 @@
       },
       "duration": "00:10:00",
       "event_type_name": "GroundContactWindow",
-      "key": "c10e4810e0454dfc8b5af6e2013041e4",
+      "key": "8c747f029f364f79ac0ee7d002610b2e",
       "start_time": "2026-08-02T02:00:00.000Z"
     },
     {
       "attributes": {
-        "passage_id": "e9e3d24830b6462c9d077e24145ddeec",
+        "passage_id": "1aca5d40211e4d3aaa9fa4a21ea98585",
         "passage_result_id": "200",
-        "satellite_id": "be6f535957a543d68478c74f37043f89",
-        "ground_station_id": "7395789ba84e4e7a916445d2b3dde92b",
+        "satellite_id": "99d49d24b8a246059380f41b785b72ed",
+        "ground_station_id": "9654c36d12b04802a2af600a250394e4",
         "max_elevation": 1.2,
         "aos": "2026-08-02T07:00:00.000Z",
         "tca": "2026-08-02T07:00:00.000Z",
@@ -144,15 +144,15 @@
       },
       "duration": "00:10:00",
       "event_type_name": "GroundContactWindow",
-      "key": "04cab60bfc79426a94f32ccd327c310e",
+      "key": "829ab8dad76c446b8fd2b95670261593",
       "start_time": "2026-08-02T07:00:00.000Z"
     },
     {
       "attributes": {
-        "passage_id": "296e191c6fd34fd4913c54f4e14a4966",
+        "passage_id": "83fdcb6fb3914324b5a8baeec94ed48d",
         "passage_result_id": "200",
-        "satellite_id": "6459122fec0247deb131f4b4c564d930",
-        "ground_station_id": "3a4cb4e43a5545318b8c1554ab217e79",
+        "satellite_id": "56624a776cbf45adb92b607b65384058",
+        "ground_station_id": "b0301a043a14459998db0b6616a4fa72",
         "max_elevation": 1.2,
         "aos": "2026-08-02T12:00:00.000Z",
         "tca": "2026-08-02T12:00:00.000Z",
@@ -163,15 +163,15 @@
       },
       "duration": "00:10:00",
       "event_type_name": "GroundContactWindow",
-      "key": "57c959e0ee314627b069e3c8c828e61d",
+      "key": "a3de2999280641928765e106ea706114",
       "start_time": "2026-08-02T12:00:00.000Z"
     },
     {
       "attributes": {
-        "passage_id": "71a7a8f653aa4a6ca6c7cd151cd866bc",
+        "passage_id": "3e7582128902461090dcc9e8beddccdc",
         "passage_result_id": "200",
-        "satellite_id": "893457633dfa4c3785304a1b6714ba56",
-        "ground_station_id": "e6859fce948646b0ae2ca6a66a7cec95",
+        "satellite_id": "b90db7093a494467acef585d587f805f",
+        "ground_station_id": "fde552a092964e3b930ab5f4bd9b71a0",
         "max_elevation": 1.2,
         "aos": "2026-08-02T17:00:00.000Z",
         "tca": "2026-08-02T17:00:00.000Z",
@@ -182,15 +182,15 @@
       },
       "duration": "00:10:00",
       "event_type_name": "GroundContactWindow",
-      "key": "bcd69b6f194440e79865d7cc7901c958",
+      "key": "54eb108ca91849f28dfd81d2fc4946c3",
       "start_time": "2026-08-02T17:00:00.000Z"
     },
     {
       "attributes": {
-        "passage_id": "d4720e30e0c4483480afb29bfbe8f4be",
+        "passage_id": "1603182e8e9d433e9c782df6313a866f",
         "passage_result_id": "200",
-        "satellite_id": "d25e0f1c30414360b27ad93fcff8268f",
-        "ground_station_id": "889206a6d8d84ed7b18c065bcb43642f",
+        "satellite_id": "32d9a4e2350e4284b2fd1c8720d13a2c",
+        "ground_station_id": "3abeb6c78dc14ff1b96a75375adb87e4",
         "max_elevation": 1.2,
         "aos": "2026-08-02T22:00:00.000Z",
         "tca": "2026-08-02T22:00:00.000Z",
@@ -201,15 +201,15 @@
       },
       "duration": "00:10:00",
       "event_type_name": "GroundContactWindow",
-      "key": "92fd9cffa66040068dcf91ad05a1a25a",
+      "key": "5fa50b1fafa44efe869ad7f63ef1a1a9",
       "start_time": "2026-08-02T22:00:00.000Z"
     },
     {
       "attributes": {
-        "passage_id": "3025f43844f04a2f94e32dc3f05db1cc",
+        "passage_id": "392fb53f6e8f4655abddb431a7427e10",
         "passage_result_id": "200",
-        "satellite_id": "0bc844c9ce3043e4b3e7398c0c2787ab",
-        "ground_station_id": "9970e3107ba943eca4439f8c4adc2bfb",
+        "satellite_id": "da31e8a575f14ffaae5088560df4c214",
+        "ground_station_id": "0bb02fd079b04c33943b743b3564d75e",
         "max_elevation": 1.2,
         "aos": "2026-08-03T03:00:00.000Z",
         "tca": "2026-08-03T03:00:00.000Z",
@@ -220,15 +220,15 @@
       },
       "duration": "00:10:00",
       "event_type_name": "GroundContactWindow",
-      "key": "1fe362e78dcd43c8982548a37e836747",
+      "key": "f5a6c313ca6a4de9a07eb4396d0128b0",
       "start_time": "2026-08-03T03:00:00.000Z"
     },
     {
       "attributes": {
-        "passage_id": "96976d8bfc5143c7861b33581955b872",
+        "passage_id": "9a5ee74a979a4853985969cf1fec3321",
         "passage_result_id": "200",
-        "satellite_id": "a262da4b9d8c426694d7abb3fa3b58e7",
-        "ground_station_id": "ad33dbaa8fbd48e0a036f6dba9a87746",
+        "satellite_id": "e2bc06b82e63429c8f68c6957dcd0559",
+        "ground_station_id": "3f2199adde7e492f99de627f706daabf",
         "max_elevation": 1.2,
         "aos": "2026-08-03T08:00:00.000Z",
         "tca": "2026-08-03T08:00:00.000Z",
@@ -239,15 +239,15 @@
       },
       "duration": "00:10:00",
       "event_type_name": "GroundContactWindow",
-      "key": "ebd763a1e7b24ea4b470a54e3265ffee",
+      "key": "545bb4aea62a493e8bf387f9283a6f3a",
       "start_time": "2026-08-03T08:00:00.000Z"
     },
     {
       "attributes": {
-        "passage_id": "54f9e8d9aef340d5bd7d253e586b8c69",
+        "passage_id": "5a7ebd144aa94d36b8d75ad6a9a8492f",
         "passage_result_id": "200",
-        "satellite_id": "3da572d8988743f882afb89c9a12e4e0",
-        "ground_station_id": "9820b92931e04bc687ff9cc7d3fdff20",
+        "satellite_id": "97e84a57c5af422ab5e6bce731010311",
+        "ground_station_id": "c5880fb4cc324d1b804f73cac1d6ecc7",
         "max_elevation": 1.2,
         "aos": "2026-08-03T13:00:00.000Z",
         "tca": "2026-08-03T13:00:00.000Z",
@@ -258,15 +258,15 @@
       },
       "duration": "00:10:00",
       "event_type_name": "GroundContactWindow",
-      "key": "2fc80262b2dd4bf3b9d39224583a0650",
+      "key": "990ac64829dc4e74be965e61bc0dd0a2",
       "start_time": "2026-08-03T13:00:00.000Z"
     },
     {
       "attributes": {
-        "passage_id": "498e730a61cc45728f0d220edba249c5",
+        "passage_id": "1830f825c5e64d15a09f692fa8250912",
         "passage_result_id": "200",
-        "satellite_id": "6c31fcc272524a0ebfa0964303885ac8",
-        "ground_station_id": "7549917a82c249a98ff83a288d43795f",
+        "satellite_id": "9482097e07de47a1a0f3880bce62b69b",
+        "ground_station_id": "d810300a40c444a18601dfcff152b695",
         "max_elevation": 1.2,
         "aos": "2026-08-03T18:00:00.000Z",
         "tca": "2026-08-03T18:00:00.000Z",
@@ -277,15 +277,15 @@
       },
       "duration": "00:10:00",
       "event_type_name": "GroundContactWindow",
-      "key": "5fa6c0b3ac474e29b692169af31ff52f",
+      "key": "451504df1c574d69ad2a04e784dd8578",
       "start_time": "2026-08-03T18:00:00.000Z"
     },
     {
       "attributes": {
-        "passage_id": "527ff6a43ccf4d9a8f9c3bdf2830d720",
+        "passage_id": "c539d7c34fb04d169a97ff695b90b2ce",
         "passage_result_id": "200",
-        "satellite_id": "db0b5cceff2d4100b100624cddc9c752",
-        "ground_station_id": "a03b3189e17a406682af41ae5de64903",
+        "satellite_id": "bbc2005e66f648c7b9cbff6b0277f460",
+        "ground_station_id": "79bc1a74ed8b4dba86f09be0c4d0ec2c",
         "max_elevation": 1.2,
         "aos": "2026-08-03T23:00:00.000Z",
         "tca": "2026-08-03T23:00:00.000Z",
@@ -296,7 +296,7 @@
       },
       "duration": "00:10:00",
       "event_type_name": "GroundContactWindow",
-      "key": "0aea4f1ed70e4369b3b1cb2bea0a1506",
+      "key": "3788959aca994dbaa4f02adf4030f783",
       "start_time": "2026-08-03T23:00:00.000Z"
     }
   ]

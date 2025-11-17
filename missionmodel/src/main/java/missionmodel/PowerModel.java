@@ -9,6 +9,7 @@ import static gov.nasa.jpl.aerie.contrib.streamline.modeling.polynomial.Polynomi
 import static gov.nasa.jpl.aerie.contrib.streamline.modeling.polynomial.PolynomialResources.constant;
 import static gov.nasa.jpl.aerie.contrib.streamline.modeling.polynomial.PolynomialResources.integrate;
 import static gov.nasa.jpl.aerie.contrib.streamline.modeling.polynomial.PolynomialResources.lessThan$;
+import static gov.nasa.jpl.aerie.contrib.streamline.modeling.polynomial.PolynomialResources.scale;
 import static gov.nasa.jpl.aerie.contrib.streamline.unit_aware.Quantities.quantity;
 import static gov.nasa.jpl.aerie.contrib.streamline.unit_aware.StandardUnits.WATT;
 
@@ -64,7 +65,10 @@ public class PowerModel {
         registrar.discrete(SOLAR_ARRAY_CHARGE_RESOURCE_NAME, solarArrayChargingRate.value(), withUnit("Watts", new DoubleValueMapper()));
         registrar.discrete(FLIGHT_COMPUTER_DRAIN_RESOURCE_NAME, flightComputerDrainRate.value(), withUnit("Watts", new DoubleValueMapper()));
         registrar.discrete(COMBINED_CHARGE_RESOURCE_NAME, combinedCharge.value(), withUnit("Watts", new DoubleValueMapper()));
-        registrar.real(BATTERY_CHARGE_RESOURCE_NAME, approximateAsLinear(clampedBatteryCharge.value()));
+
+        // divide by 3600 to convert Joules resulting from integral to Watt-hours
+        registrar.real(BATTERY_CHARGE_RESOURCE_NAME, approximateAsLinear(scale(clampedBatteryCharge.value(), 1/3600.0)), "Battery state of charge in Watt-hours");
+
 
     }
 }
