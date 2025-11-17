@@ -1,8 +1,9 @@
 package missionmodel;
 
-import gov.nasa.jpl.aerie.contrib.streamline.unit_aware.Unit;
 import static gov.nasa.jpl.aerie.contrib.streamline.unit_aware.StandardUnits.HOUR;
 import static gov.nasa.jpl.aerie.contrib.streamline.unit_aware.StandardUnits.WATT;
+
+import gov.nasa.jpl.aerie.contrib.streamline.unit_aware.Unit;
 
 public class Utils {
 

@@ -25,8 +25,7 @@ public class Eclipse {
 
         /*
          Drop solar array charging rate to zero during eclipse
-        */
-        
+        */  
         DiscreteEffects.set(model.powerModel.solarArrayChargingRate, quantity(0.0, WATT));
         delay(Duration.minutes(durationMinutes));
         DiscreteEffects.set(model.powerModel.solarArrayChargingRate, quantity(missionmodel.PowerModel.SOLAR_ARRAY_CHARGE_RATE, WATT));

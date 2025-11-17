@@ -27,33 +27,30 @@ import gov.nasa.jpl.aerie.contrib.streamline.unit_aware.UnitAware;
  */
 public class PowerModel {
 
-
-
-    public UnitAware<MutableResource<Discrete<Double>>> solarArrayChargingRate; // W
-    public UnitAware<MutableResource<Discrete<Double>>> flightComputerDrainRate; // W
+    public UnitAware<MutableResource<Discrete<Double>>> solarArrayChargingRate; // Watts
+    public UnitAware<MutableResource<Discrete<Double>>> flightComputerDrainRate; // Watts
     public UnitAware<Resource<Discrete<Double>>> combinedCharge;
 
     UnitAware<Resource<Polynomial>> batteryCharge;
     UnitAware<Resource<Polynomial>> clampedBatteryCharge;
     Resource<Discrete<Boolean>> lowPower;
 
-    public static final Double SOLAR_ARRAY_CHARGE_RATE = 200.0; // W
-    public static final Double FLIGHT_COMPUTER_DRAIN_RATE = -100.0; // W
+    public static final Double SOLAR_ARRAY_CHARGE_RATE = 200.0; // Watts
+    public static final Double FLIGHT_COMPUTER_DRAIN_RATE = -100.0; // Watts
 
-    public static final UnitAware<Double> INITIAL_BATTERY_CHARGE = quantity(2000.0, Utils.WATT_HOUR); // Wh
-    public static final UnitAware<Double> BATTERY_CAPACITY = quantity(2000.0, Utils.WATT_HOUR); // Wh
-    public static final UnitAware<Double> LOW_BATTERY_THRESHOLD = quantity(500.0, Utils.WATT_HOUR); // Wh
+    public static final UnitAware<Double> INITIAL_BATTERY_CHARGE = quantity(2000.0, Utils.WATT_HOUR);
+    public static final UnitAware<Double> BATTERY_CAPACITY = quantity(2000.0, Utils.WATT_HOUR);
+    public static final UnitAware<Double> LOW_BATTERY_THRESHOLD = quantity(500.0, Utils.WATT_HOUR);
+
     public static final String BATTERY_CHARGE_RESOURCE_NAME = "Battery Charge";
+    public static final String SOLAR_ARRAY_CHARGE_RESOURCE_NAME = "Solar Array Charging Rate";
+    public static final String FLIGHT_COMPUTER_DRAIN_RESOURCE_NAME = "Flight Computer Drain Rate";
+    public static final String COMBINED_CHARGE_RESOURCE_NAME = "Combined Charge Rate";
 
     public PowerModel(Registrar registrar, Configuration config)
     {
         solarArrayChargingRate = DiscreteResources.unitAware(discreteResource(SOLAR_ARRAY_CHARGE_RATE), WATT); // Solar array charging rate while in sunlight
         flightComputerDrainRate = DiscreteResources.unitAware(discreteResource(FLIGHT_COMPUTER_DRAIN_RATE), WATT); // Default drain rate
-        // combinedCharge = add(solarArrayChargingRate.value(), flightComputerDrainRate.value(),
-        //   (Double source$, Double sink$) -> {
-        //     return source$ - sink$;
-        //   });
-
         combinedCharge = DiscreteResources.unitAware(map(solarArrayChargingRate.value(), flightComputerDrainRate.value(),
           (Double solarChargeRate$, Double computerDrainRate$) -> {
             return solarChargeRate$ + computerDrainRate$;
@@ -64,45 +61,10 @@ public class PowerModel {
         lowPower = lessThan$(batteryCharge, LOW_BATTERY_THRESHOLD);
 
         // extract non-unit-aware values for registration
-        registrar.discrete("Solar Array Charging Rate", solarArrayChargingRate.value(), withUnit("Watts", new DoubleValueMapper()));
-        registrar.discrete("Flight Computer Drain Rate", flightComputerDrainRate.value(), withUnit("Watts", new DoubleValueMapper()));
-        registrar.discrete("Combined Charge Rate", combinedCharge.value(), withUnit("Watts", new DoubleValueMapper()));
+        registrar.discrete(SOLAR_ARRAY_CHARGE_RESOURCE_NAME, solarArrayChargingRate.value(), withUnit("Watts", new DoubleValueMapper()));
+        registrar.discrete(FLIGHT_COMPUTER_DRAIN_RESOURCE_NAME, flightComputerDrainRate.value(), withUnit("Watts", new DoubleValueMapper()));
+        registrar.discrete(COMBINED_CHARGE_RESOURCE_NAME, combinedCharge.value(), withUnit("Watts", new DoubleValueMapper()));
         registrar.real(BATTERY_CHARGE_RESOURCE_NAME, approximateAsLinear(clampedBatteryCharge.value()));
 
     }
-
-    /*
-     * Solar array charging daemon.
-     * Increments battery charge based on solar array charging rate.
-     */
-    // public void solarArrayCharge() {
-    //     Duration SOLAR_ARRAY_CHARGE_INTERVAL = Duration.duration(1, Duration.MINUTES);
-    //     while(true) {
-    //         delay(SOLAR_ARRAY_CHARGE_INTERVAL);
-    //         Double currentSolarChargeRate = currentValue(solarArrayChargingRate);
-    //         if (currentValue(batteryCharge) < BATTERY_CAPACITY) {
-    //             DiscreteEffects.increase(batteryCharge, Math.min(
-    //                 currentSolarChargeRate * SOLAR_ARRAY_CHARGE_INTERVAL.ratioOver(Duration.HOUR),
-    //                 BATTERY_CAPACITY - currentValue(batteryCharge)));
-    //         }
-    //     }
-    // }
-
-    /*
-     * Flight computer power drain daemon.
-     * Decrements battery charge based on flight computer drain rate.
-     */
-    // public void flightComputerDrain() {
-    //     Duration DRAIN_INTERVAL = Duration.duration(1, Duration.MINUTES);
-    //     while(true) {
-    //         delay(DRAIN_INTERVAL);
-    //         Double currentDrainRate = currentValue(flightComputerDrainRate);
-    //         if (currentValue(batteryCharge) < BATTERY_CAPACITY) {
-    //             // Charge rate units in watts, battery charge in watt hours
-    //             DiscreteEffects.decrease(batteryCharge, Math.min(
-    //                 currentDrainRate * DRAIN_INTERVAL.ratioOver(Duration.HOUR),
-    //                 currentValue(batteryCharge)));
-    //         }
-    //     }
-    // }
 }

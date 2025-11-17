@@ -1,10 +1,12 @@
 package scheduling.procedures;
 
+import java.util.List;
+import java.util.Map;
+
 import gov.nasa.ammos.aerie.procedural.scheduling.Goal;
+import gov.nasa.ammos.aerie.procedural.scheduling.annotations.SchedulingProcedure;
 import gov.nasa.ammos.aerie.procedural.scheduling.plan.EditablePlan;
 import gov.nasa.ammos.aerie.procedural.scheduling.plan.NewDirective;
-import gov.nasa.ammos.aerie.procedural.scheduling.annotations.SchedulingProcedure;
-import gov.nasa.ammos.aerie.procedural.timeline.payloads.activities.Directive;
 import gov.nasa.ammos.aerie.procedural.timeline.collections.Instances;
 import gov.nasa.ammos.aerie.procedural.timeline.payloads.ExternalEvent;
 import gov.nasa.ammos.aerie.procedural.timeline.payloads.activities.AnyDirective;
@@ -12,13 +14,7 @@ import gov.nasa.ammos.aerie.procedural.timeline.payloads.activities.AnyInstance;
 import gov.nasa.ammos.aerie.procedural.timeline.payloads.activities.DirectiveStart;
 import gov.nasa.ammos.aerie.procedural.timeline.plan.EventQuery;
 import gov.nasa.jpl.aerie.merlin.protocol.types.Duration;
-import gov.nasa.jpl.aerie.merlin.protocol.types.SerializedValue;
 import missionmodel.Utils;
-
-import java.util.Map;
-import java.util.List;
-import java.time.format.DateTimeFormatter;
-import java.time.Instant;
 
 /*
  * Scheduling procedure to create GroundContact activities for
